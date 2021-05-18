@@ -1,6 +1,9 @@
-import pg from 'pg';
-const { Pool } = pg;
+const { Pool } = require('pg');
 
 const pool = new Pool();
 
-export default function query(text, params) { return pool.query(text, params); }
+module.exports = {
+  query: (text, params, callback) => {
+    return pool.query(text, params, callback)
+  },
+};
