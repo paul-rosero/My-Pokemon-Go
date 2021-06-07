@@ -1,14 +1,15 @@
 import React from 'react';
 import './App.css';
-import { Login, Signup } from './Components/UserForms';
+import Login from './Components/UserForms/LoginForm';
+import Signup from './Components/UserForms/SignupForm';
+
 
 
 function App() {
   return (
-    <div className="App">
-        
-        <Signup />
-        <Login />
+    <div className="App"> 
+      <Signup />
+      <Login />
      </div>
   );
 }
