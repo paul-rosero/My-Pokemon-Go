@@ -85,7 +85,6 @@ router.get("/users/:id", (req, res) => {
     });
 });
 
-    
 //Edit User
 router.put("/users/:id", (req, res) => {
     const { id, username, name, email, password } = req.body;
