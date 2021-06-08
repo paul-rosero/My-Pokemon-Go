@@ -9,26 +9,24 @@ const LoginForm = () => {
     axios.defaults.withCredentials = true;
 
     const loginUser = () => {
-        console.log("loggedIn 1", loggedIn)
-        axios.post('http://localhost:5000/api/v1/users/login', { username, password })
+        axios.post(`http://localhost:4000/api/v1/users/login`, { username, password })
         .then(({ data }) => {
             if (data.message) {
-                setLoggedIn(data.message);
+                console.log(data.message);
             } else {
-                console.log("loggedIn 2", loggedIn)
                 setLoggedIn(data.rows[0]);
             };
         });
     };
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/v1/users/login')
+        axios.get('http://localhost:4000/api/v1/users/login')
         .then(({ data }) => {
             if (data.loggedIn === true) {
                 setLoggedIn(data.user[0])
             }; 
-        })    
-    }, []);
+        })
+    }, [loggedIn]);
 
     return (
         <div className="form">
