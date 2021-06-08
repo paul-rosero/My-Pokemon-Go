@@ -33,6 +33,8 @@ router.post("/users/login", (req, res) => {
                 if (response) {
                     req.session.user = result;
                     res.json(result);
+                } else if (error) {
+                    console.log(error.toJSON())
                 } else {
                     res.json({ error_message: "Username is correct. Wrong password entered. Please enter again" });
                 };
